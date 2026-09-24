@@ -1,0 +1,280 @@
+.anime-pirate-fallback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  background: #030609;
+}
+
+/* Twilight & Sunset Gradient */
+.sky-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 80% 50% at 50% 65%,
+      rgba(255, 126, 95, 0.15) 0%,
+      rgba(7, 26, 46, 0.6) 50%,
+      transparent 80%
+    ),
+    linear-gradient(180deg, #06111f 0%, #071a2e 45%, #0a223e 70%, #030609 100%);
+}
+
+/* Celestial Moon */
+.celestial-moon {
+  position: absolute;
+  top: 10%;
+  left: 14%;
+  width: 90px;
+  height: 90px;
+}
+
+.moon-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e0f2fe 30%, #38bdf8 80%, #00d9ff 100%);
+  box-shadow: 0 0 45px rgba(0, 217, 255, 0.45);
+}
+
+.moon-ring {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(0, 255, 156, 0.4);
+  animation: moonRotate 30s linear infinite;
+}
+
+@keyframes moonRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Clouds */
+.clouds-layer {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  width: 200%;
+  height: 140px;
+  background-repeat: repeat-x;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.clouds-far {
+  background: radial-gradient(ellipse at center, rgba(12, 35, 64, 0.8) 0%, transparent 70%);
+  background-size: 400px 100px;
+  animation: cloudDrift 60s linear infinite;
+}
+
+.clouds-mid {
+  top: 42%;
+  opacity: 0.18;
+  background: radial-gradient(ellipse at center, rgba(30, 58, 95, 0.7) 0%, transparent 65%);
+  background-size: 550px 120px;
+  animation: cloudDrift 45s linear infinite reverse;
+}
+
+@keyframes cloudDrift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Distant Islands */
+.distant-islands {
+  position: absolute;
+  bottom: 18%;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  pointer-events: none;
+}
+
+.islands-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Ship Silhouette */
+.ship-silhouette-container {
+  position: absolute;
+  right: 12%;
+  bottom: 22%;
+  width: 160px;
+  height: 140px;
+  animation: shipBob 6s ease-in-out infinite;
+}
+
+.ship-hull-silhouette {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hull shape */
+.ship-hull-silhouette::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 130px;
+  height: 35px;
+  background: #060d17;
+  border-radius: 5px 25px 45px 50px;
+  border-bottom: 2px solid #00d9ff;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+/* Masts and sails */
+.fallback-mast {
+  position: absolute;
+  left: 70px;
+  bottom: 40px;
+  width: 4px;
+  height: 80px;
+  background: #101c2e;
+}
+
+.fallback-sail {
+  position: absolute;
+  left: 45px;
+  bottom: 50px;
+  width: 55px;
+  height: 48px;
+  background: #091322;
+  border-radius: 4px 20px 20px 4px;
+  border-left: 2px solid rgba(0, 255, 156, 0.4);
+}
+
+.fallback-flag {
+  position: absolute;
+  left: 74px;
+  top: 18px;
+  width: 25px;
+  height: 15px;
+  background: #00ff9c;
+  clip-path: polygon(0% 0%, 100% 20%, 80% 50%, 100% 80%, 0% 100%);
+  box-shadow: 0 0 10px #00ff9c;
+  animation: flagFlutter 1.5s ease-in-out infinite alternate;
+}
+
+.fallback-lantern {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.lantern-stern {
+  left: 15px;
+  bottom: 38px;
+  background: #00d9ff;
+  box-shadow: 0 0 12px 3px #00d9ff;
+}
+
+.lantern-bow {
+  right: 20px;
+  bottom: 35px;
+  background: #00ff9c;
+  box-shadow: 0 0 12px 3px #00ff9c;
+}
+
+@keyframes shipBob {
+  0%, 100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes flagFlutter {
+  0% { transform: scaleX(1) skewY(-2deg); }
+  100% { transform: scaleX(0.85) skewY(3deg); }
+}
+
+/* Ocean Waves Layers */
+.ocean-waves-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat-x;
+}
+
+.wave-back {
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 217, 255, 0.2) 0%, transparent 60%),
+    linear-gradient(180deg, #071e36 0%, #030a14 100%);
+  clip-path: polygon(0 25%, 25% 15%, 50% 25%, 75% 15%, 100% 25%, 100% 100%, 0% 100%);
+  animation: waveMove 12s linear infinite;
+  opacity: 0.6;
+}
+
+.wave-mid {
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 255, 156, 0.15) 0%, transparent 60%),
+    linear-gradient(180deg, #05162a 0%, #02060c 100%);
+  clip-path: polygon(0 20%, 30% 30%, 60% 15%, 85% 28%, 100% 20%, 100% 100%, 0% 100%);
+  animation: waveMove 8s linear infinite reverse;
+  opacity: 0.8;
+}
+
+.wave-front {
+  background: linear-gradient(180deg, #04101e 0%, #010307 100%);
+  clip-path: polygon(0 15%, 20% 5%, 45% 18%, 70% 8%, 100% 15%, 100% 100%, 0% 100%);
+  border-top: 1px solid rgba(0, 217, 255, 0.3);
+  animation: waveMove 6s linear infinite;
+}
+
+@keyframes waveMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Sea Embers */
+.sea-embers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ember-particle {
+  position: absolute;
+  bottom: 0;
+  width: 3px;
+  height: 3px;
+  background: #00ff9c;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff9c;
+  animation: emberRise ease-in infinite;
+}
+
+@keyframes emberRise {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-80vh) scale(1.2);
+    opacity: 0;
+  }
+}

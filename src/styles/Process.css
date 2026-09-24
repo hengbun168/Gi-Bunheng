@@ -1,0 +1,134 @@
+.process-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: var(--space-4xl);
+  position: relative;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  flex: 1;
+  max-width: 170px;
+  z-index: 2;
+}
+
+.process-number-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-number-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent-green);
+  opacity: 0.15;
+  animation: pulseRadar 3s ease-in-out infinite;
+}
+
+.process-number {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 16, 38, 0.9);
+  border: 2px solid var(--glass-border-green);
+  border-radius: 50%;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--accent-green);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.process-step:hover .process-number {
+  background: var(--gradient-green-cyan);
+  color: #030712;
+  border-color: transparent;
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
+  transform: scale(1.1);
+}
+
+.process-title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-white);
+  margin-bottom: 6px;
+}
+
+.process-desc {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Animated Connector Line */
+.process-connector {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 136, 0.4),
+    rgba(0, 240, 255, 0.4)
+  );
+  margin-top: 31px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+.connector-glow-dot {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  animation: dashMoveConnector 3s linear infinite;
+}
+
+@keyframes dashMoveConnector {
+  0% { left: 0%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+  }
+
+  .process-connector {
+    display: none;
+  }
+
+  .process-step {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 580px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}

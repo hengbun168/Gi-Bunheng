@@ -1,0 +1,190 @@
+.experience-timeline {
+  position: relative;
+  max-width: 860px;
+  margin: var(--space-4xl) auto 0;
+  padding: 1rem 0;
+}
+
+/* Glowing Animated Timeline Center Line */
+.timeline-glowing-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--accent-green) 15%,
+    var(--accent-cyan) 85%,
+    transparent 100%
+  );
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.4), 0 0 25px rgba(0, 240, 255, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-3xl);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Node in center */
+.timeline-node {
+  position: absolute;
+  left: 50%;
+  top: 32px;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-node-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent-green);
+  opacity: 0.25;
+  animation: pulseRadar 3s ease-in-out infinite;
+}
+
+.timeline-node-core {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #030712;
+  border: 2px solid var(--accent-green);
+  color: var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  box-shadow: 0 0 15px var(--accent-green);
+  transition: all var(--transition-fast);
+}
+
+.timeline-item:hover .timeline-node-core {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 20px var(--accent-cyan);
+  transform: scale(1.15);
+}
+
+/* Card */
+.timeline-card {
+  width: calc(50% - 45px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--cyber-box-shadow);
+  transition: all var(--transition-base);
+}
+
+.timeline-left .timeline-card {
+  margin-right: auto;
+}
+
+.timeline-right .timeline-card {
+  margin-left: auto;
+}
+
+.timeline-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--glass-border-green);
+  box-shadow: var(--cyber-box-shadow), var(--glass-glow-green);
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.timeline-year-tag {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 4px 12px;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: var(--radius-full);
+  color: var(--accent-green);
+  letter-spacing: 1px;
+}
+
+.timeline-status-badge {
+  font-family: var(--font-family-mono);
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.5px;
+}
+
+.timeline-title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-white);
+  margin-bottom: var(--space-sm);
+  line-height: var(--line-height-snug);
+}
+
+.timeline-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  margin-bottom: var(--space-lg);
+}
+
+.timeline-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.timeline-tech-tag {
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 36px;
+  }
+
+  .timeline-glowing-line {
+    left: 18px;
+    transform: none;
+  }
+
+  .timeline-node {
+    left: 18px;
+    transform: translate(-50%, -50%);
+  }
+
+  .timeline-card {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
